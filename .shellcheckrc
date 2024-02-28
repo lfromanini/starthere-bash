@@ -1,0 +1,10 @@
+# shell
+shell=bash
+
+# enable
+enable=require-variable-braces
+
+# ignore
+disable=SC1091		# SC1091 (info): Not following: (error message here)
+disable=SC1094		# SC1094 (warning): Parsing of sourced file failed. Ignoring it.
+disable=SC2155		# SC2155 (warning): Declare and assign separately to avoid masking return values.
