@@ -62,7 +62,7 @@ function string::ltrim()
 	if (( $# == 0 )) ; then
 		sed --regexp-extended 's/^[[:space:]\\t]*//'
 	else
-		printf "%b" "${s}" | sed --regexp-extended 's/^[[:space:]\\t]*//'
+		printf "%b" "${s}" | sed --regexp-extended 's/^[[:space:]]*//'
 	fi
 }
 
@@ -85,7 +85,7 @@ function string::rtrim()
 	if (( $# == 0 )) ; then
 		sed --regexp-extended 's/[[:space:]\\t]*$//'
 	else
-		printf "%b" "${s}" | sed --regexp-extended 's/[[:space:]\\t]*$//'
+		printf "%b" "${s}" | sed --regexp-extended 's/[[:space:]]*$//'
 	fi
 }
 
