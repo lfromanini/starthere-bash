@@ -246,7 +246,7 @@ function _logger::handle()
 		;;
 
 		CRITICAL)
-			[[ "${level}" = "CRITICAL" ]] && bLog=true
+			[[ "${level}" == "CRITICAL" ]] && bLog=true
 		;;
 	esac
 
