@@ -4,7 +4,6 @@ export __STARTHERE_BASH_ARGS
 ###############################################################################
 # [public] define valid arguments
 #          long format and/or short format must be suplied
-#          not providing a description makes args::prettyPrint useless
 # globals
 #     _argsLongFormat
 #     _argsShortFormat
