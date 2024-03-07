@@ -14,13 +14,13 @@ A starting point to write bash scripts, with a framework that doesn't step on yo
 
 ## Description
 
-[StartHere.bash](https://github.com/lfromanini/starthere-bash) is a simple but very effective framework written to facilitate the process of creating [bash](https://en.wikipedia.org/wiki/Bash_(Unix_shell)) scripts without having to repeat common functionality like arguments parsing, dependency management or logging. It's designed to be let the programmer decide the way the software will operate, so it's not intrusive; and in the majority of Linux distributions will not demand any additional package to be installed (see [Requirements](https://github.com/lfromanini/starthere-bash#requirements)). If a functionallity requires more dependencies, it will be provided as an add-on, and it will have to be sourced separatelly. StartHere.bash also doesn't assume anything besides aliases expansion, which is already set in StartHere.bash main script. It's up to the developer to decide to use or not to use `set -o nounset` to disallow unbound variables, `set -o pipefail`, to prevents errors in a pipeline from being masked, `set -o errexit`...
+[StartHere.bash](https://github.com/lfromanini/starthere-bash) is a simple but very effective framework written to facilitate the process of creating [bash](https://en.wikipedia.org/wiki/Bash_(Unix_shell)) scripts without having to repeat common functionality like arguments parsing, dependency management or logging. It's designed to let the programmer decide the way the software will operate, so it's not intrusive; and in the majority of Linux distributions will not demand any additional package to be installed (see [Requirements](https://github.com/lfromanini/starthere-bash#requirements)). If a functionallity requires more dependencies, it will be provided as an add-on, and it will have to be sourced separatelly. StartHere.bash also doesn't assume anything besides aliases expansion, which is already set in StartHere.bash main script. It's up to the developer to decide to use or not to use `set -o nounset` to disallow unbound variables, `set -o pipefail`, to prevents errors in a pipeline from being masked, `set -o errexit`...
 
 StartHere.bash uses the following standards:
 
-* a constant is UPPERCASE.
+* constants are written in UPPERCASE.
 * if a function or variable starts with two underscores, it's intended to be private, and should not be directly accessed.
-* if a function or variable starts with a single underscore, it's intended to be protected, and it can be overwritten by an add-on.
+* if a function or variable starts with a single underscore, it's intended to be protected, and it can be accessed or overwritten by an add-on.
 * if not starting with underscores, it's public and can be directly accessed.
 
 All functions are commented, in a way to make clear which internal variables are changed, and, mainly, what's the expected parameters for that function.
@@ -40,11 +40,11 @@ For `logger::setRotate`, we have:
 ###############################################################################
 ```
 
-Meaning that it's a public function, that intends to configure the log rotation policy, changing the protected variable `_loggerRotateLines`. It accepts one argument with the maximum row number that should be kept in log files. If no provided, `LOGGER_INFINITE` will be assumed. No output is generated, ie: nothing will be echoed. This function returns `0` if success or `1` if a not integer number was informed (so this must be handled carefully, if using `set -o errexit`).
+Meaning that it's a public function, that intends to configure the log rotation policy, changing the protected variable `_loggerRotateLines`. It accepts one argument with the maximum row number that should be kept in log files. If not provided, `LOGGER_INFINITE` will be assumed. No output is generated, ie: nothing will be echoed. This function returns `0` if success or `1` if a not integer number was informed (so this must be handled carefully, if using `set -o errexit`).
 
 ## Examples
 
-In a real use case, you might clone this repository as a gitsubmodule and put your script in the root path. This samples assumes it.
+In a real use case, you might clone this repository as a [git submodule](https://git-scm.com/book/en/v2/Git-Tools-Submodules) and put your script in the root path. These samples assumes:
 
 ```text
 ( your script location )
