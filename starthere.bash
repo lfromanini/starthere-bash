@@ -6,13 +6,15 @@ shopt -s expand_aliases				# allow alias
 
 # public constants
 readonly STARTHERE_BASH_PATH="$( builtin cd -P -- "$( dirname -- "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )"
+readonly STARTHERE_BASH_CORE_PATH="${STARTHERE_BASH_PATH}"/core
+readonly STARTHERE_BASH_ADDON_PATH="${STARTHERE_BASH_PATH}"/addon
 
 # load starthere.bash libraries
-source "${STARTHERE_BASH_PATH}"/core/args.bash
-source "${STARTHERE_BASH_PATH}"/core/dependency.bash
-source "${STARTHERE_BASH_PATH}"/core/logger.bash
-source "${STARTHERE_BASH_PATH}"/core/string.bash
-source "${STARTHERE_BASH_PATH}"/core/ui.bash
+source "${STARTHERE_BASH_CORE_PATH}"/args.bash
+source "${STARTHERE_BASH_CORE_PATH}"/dependency.bash
+source "${STARTHERE_BASH_CORE_PATH}"/logger.bash
+source "${STARTHERE_BASH_CORE_PATH}"/string.bash
+source "${STARTHERE_BASH_CORE_PATH}"/ui.bash
 
 # check for mandatory tools
 dependency::assert \
