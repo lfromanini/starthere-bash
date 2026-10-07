@@ -1,5 +1,3 @@
-<img align="right" src="https://cdn.rawgit.com/sindresorhus/awesome/d7305f38d29fed78fa85652e3a63e154dd8e8829/media/badge.svg">
-
 # StartHere.bash
 A starting point to write bash scripts, with a framework that doesn't step on your way
 
